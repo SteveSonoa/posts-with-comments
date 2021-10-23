@@ -1,46 +1,21 @@
-# Getting Started with Create React App
+Thank you for taking on this activity to demonstrate your knowledge of React. What we are primarily looking for in your submission will be functionality and code cleanliness. However, creating a well-presented application experience will be noticed and appreciated. You may use any approach, packages, patterns, CSS libraries that you prefer to augment or extend the capabilities of the main framework that you are using. It is entirely valid to use an off-the-shelf CLI interface to generate your project. Use whichever tools and techniques you prefer to help you to achieve the task as cleanly and quickly as possible.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+For this assignment, we will use the JSON placeholder API, found here: https://jsonplaceholder.typicode.com/. This service provides a freely available endpoint that we can use to prototype applications. Data in your application should be dynamically retrieved from this endpoint. The API supports typical RESTful routing and methods. It will also give realistic responses to these request types. However, because it is a publicly available shared resource, it will not persist your changes. For purposes of this exercise, it is acceptable to update the UI optimistically based upon any responses that you receive. The routes that are of interest to us in this exercise will be the `posts` and `comments`.
 
-## Available Scripts
+Now for the task: Using the publicly available JSON placeholder API, create an application using the front end framework that lists post entities with a title. When a user taps on one of the posts in the list, the app should navigate to a detail page that displays the title at the top of the screen as well as the body content of the post. This post detail screen should have the ability to navigate back to the posts list view. Below the body content section of the post detail screen, display all of the comments that are associated with that post. For each comment, show the body, name, and email address. 
 
-In the project directory, you can run:
+To recap, we are looking for 2 screens that are wired up to the API: 
 
-### `npm start`
+- a `posts` list view with a title that navigates to the detail view
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- a `post` detail view with title, body, and a list of related comments at the bottom
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Optional Bonus Activities: 
 
-### `npm test`
+- Unit tests for core application features 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- The ability to look up all posts by an author 
 
-### `npm run build`
+- A search filter to filter posts on the main screen 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- A comment field for users to submit a comment (may submit a POST to API and update the UI, but will not persist on API)

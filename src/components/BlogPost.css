@@ -1,0 +1,23 @@
+.blog-post-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.blog-post-container h2,
+.blog-post-container a.post-author {
+    margin: 0;
+}
+
+.blog-post-container h2 {
+    font-size: 32px;
+}
+
+.blog-post-container a.post-author {
+    font-style: italic;
+}
+
+.blog-post-container p.post-body {
+    background: #ffffff;
+    padding: 10px 15px;
+    border-radius: 3px;
+}

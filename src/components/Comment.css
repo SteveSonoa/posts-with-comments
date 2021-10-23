@@ -1,0 +1,24 @@
+.comment-container {
+    display: flex;
+    margin-bottom: 25px;
+}
+
+.comment-container .comment-text {
+    margin-left: 10px;
+    background: #ffffff;
+    border-radius: 3px;
+    padding: 5px 10px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.comment-container .comment-text .comment-title {
+    font-weight: 900;
+}
+
+.comment-container .comment-text .comment-author {
+    font-style: italic;
+    font-size: 0.9em;
+    color: #808080;
+    margin-bottom: 5px;
+}

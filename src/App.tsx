@@ -1,24 +1,23 @@
 import React from 'react';
-import logo from './logo.svg';
+import { Link, Route, Switch } from 'react-router-dom';
+import { ListPage } from './routes/list';
+import { PostPage } from './routes/post';
 import './App.css';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <div className="app-content">
+        <header><Link to="/"><h1>My Wonderful Blog</h1></Link></header>
+        
+        <section>
+          <Switch>
+            <Route exact path='/:postId'><PostPage /></Route>
+            <Route path='/'><ListPage /></Route>
+          </Switch>
+        </section>
+      </div>
     </div>
   );
 }

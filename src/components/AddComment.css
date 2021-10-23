@@ -1,0 +1,14 @@
+.add-comment-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.add-comment-container input,
+.add-comment-container textarea,
+.add-comment-container button {
+    box-sizing: border-box;
+    width: 100%;
+    margin-bottom: 10px;
+    font-size: 18px;
+    padding: 5px 10px;
+}
