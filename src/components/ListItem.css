@@ -22,6 +22,7 @@
 
 .list-item h2 {
     flex-grow: 1;
+    text-transform: capitalize;
 }
 
 .list-item .read-more {

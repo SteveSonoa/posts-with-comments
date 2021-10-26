@@ -10,24 +10,22 @@ type Props = {
 export const BlogPost = ({ post }: Props) => {
     const [author, setAuthor] = useState<string>('Anonymous');
 
-    const getAuthor = () => {
+    const formatBody = (body: string) => body.split('\n').map((p, i) => <p key={i}>{p}</p>)
+
+    useEffect(() => {
         fetch(`https://jsonplaceholder.typicode.com/users/${post?.userId}`)
             .then(res => res.json() as Promise<User>)
             .then(data => {
                 setAuthor(data.username);
             })
             .catch(_ => setAuthor('Anonymous'));
-    }
-
-    useEffect(() => {
-        getAuthor();
-    }, []);
+    }, [post?.userId]);
 
     return post ? (
         <div className="blog-post-container">
             <h2>{post.title}</h2>
             <p className="post-author">Posted by <Link className="post-author" to={`/?author=${post.userId}`}>{author}</Link></p>
-            <p className="post-body">{post.body}</p>
+            <div className="post-body">{formatBody(post.body)}</div>
         </div>
     ) : null;
 };

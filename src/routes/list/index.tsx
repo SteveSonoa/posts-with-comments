@@ -13,7 +13,12 @@ export const ListPage = () => {
     const [error, setError] = useState<Error | null>(null);
     const [searchText, setSearchText] = useState('');
 
-    const getPosts = () => {
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setSearchText(e.target.value);
+        setFilteredPosts(posts.filter(post => !e.target.value || post.body.includes(e.target.value) || post.title.includes(e.target.value)))
+    }
+
+    useEffect(() => {
         setIsLoading(true);
         setError(null);
 
@@ -34,15 +39,6 @@ export const ListPage = () => {
             })
             .catch((e: Error) => setError(e))
             .finally(() => setIsLoading(false));
-    }
-
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setSearchText(e.target.value);
-        setFilteredPosts(posts.filter(post => !e.target.value || post.body.includes(e.target.value) || post.title.includes(e.target.value)))
-    }
-
-    useEffect(() => {
-        getPosts();
     }, [location.search]);
 
     return (

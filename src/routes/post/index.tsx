@@ -17,39 +17,42 @@ export const PostPage = () => {
     const [isCommentsLoading, setIsCommentsLoading] = useState(true);
     const [commentsError, setCommentsError] = useState<Error | null>(null);
 
-    const getPosts = () => {
-        setIsPostLoading(true);
-        setPostError(null);
 
-        fetch(`https://jsonplaceholder.typicode.com/posts/${match.params.postId}`)
-            .then(res => res.json() as Promise<Post>)
-            .then(data => {
-                setPost(data);
-            })
-            .catch((e: Error) => setPostError(e))
-            .finally(() => setIsPostLoading(false));
-    }
-
-    const getComments = () => {
-        setIsCommentsLoading(true);
-        setCommentsError(null);
-
-        fetch(`https://jsonplaceholder.typicode.com/posts/${match.params.postId}/comments`)
-            .then(res => res.json() as Promise<Comment[]>)
-            .then(data => {
-                setComments(data);
-            })
-            .catch((e: Error) => setCommentsError(e))
-            .finally(() => setIsCommentsLoading(false));    }
 
     const addNewComment = (newComment: Comment) => {
         setComments([...comments, newComment])
     };
 
     useEffect(() => {
+        const getPosts = () => {
+            setIsPostLoading(true);
+            setPostError(null);
+    
+            fetch(`https://jsonplaceholder.typicode.com/posts/${match.params.postId}`)
+                .then(res => res.json() as Promise<Post>)
+                .then(data => {
+                    setPost(data);
+                })
+                .catch((e: Error) => setPostError(e))
+                .finally(() => setIsPostLoading(false));
+        }
+    
+        const getComments = () => {
+            setIsCommentsLoading(true);
+            setCommentsError(null);
+    
+            fetch(`https://jsonplaceholder.typicode.com/posts/${match.params.postId}/comments`)
+                .then(res => res.json() as Promise<Comment[]>)
+                .then(data => {
+                    setComments(data);
+                })
+                .catch((e: Error) => setCommentsError(e))
+                .finally(() => setIsCommentsLoading(false));
+        }
+
         getPosts();
         getComments();
-    }, []);
+    }, [match.params.postId]);
 
     return (
         <div>
